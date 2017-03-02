@@ -249,7 +249,17 @@ void UnixExecutor::handle_bat(string &path, bool is_foreground)
 			// convert string to tokens
 			vector<string> args;
 			string s = buf;
-			parser->parse(s, args);
+			printf("%s\n", buf);
+
+			try {
+				parser->parse(s, args);
+			}
+			catch (TokenParseError &e) {
+				printf(PFRED 
+					"Loi cu phap nhap!\n" 
+					PFNORMAL);
+				continue;
+			}
 
 			this->execute(args);
 		}

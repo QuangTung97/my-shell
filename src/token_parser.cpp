@@ -143,6 +143,11 @@ void TokenParser::parse(const string &str,
 
 node_continue:;
 	}
+	if (current->is_end) {
+		tokens.push_back(token);
+		return;
+	}
+
 	if (current != &start)
 		throw TokenParseError("Non Terminate");
 }
