@@ -49,7 +49,14 @@ void UnixExecutor::init_cmd_exit()
 void UnixExecutor::init_cmd_help()
 {
 	system_cmds["help"] = [this](vector<string> &args) {
-		printf(PFRED "Help section\n" PFNORMAL);
+		printf(PFRED "System commands: \n" PFNORMAL);
+        printf(PFGREEN "path: Show PATH environment variable\n" PFNORMAL);
+        printf(PFGREEN "addpath: Add path to PATH variable\n" PFNORMAL);
+        printf(PFGREEN "exit: Exit shell\n" PFNORMAL);
+        printf(PFGREEN "list: List all background processes\n" PFNORMAL);
+        printf(PFGREEN "kill: Kill a process by PID\n" PFNORMAL);
+        printf(PFGREEN "stop: Stop a process by PID\n" PFNORMAL);
+        printf(PFGREEN "resume: Resume a process by PID\n" PFNORMAL);
 	};
 }
 
